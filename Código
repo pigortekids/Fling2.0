@@ -66,8 +66,8 @@ int main()
                 printf("\t%i.(%c,%c)%c\n", (i/3)+1, caminho[i], caminho[i+1], caminho[i+2]);
                 i+=2;
             }
+            printf("\ncontador de possibilidades-->  %i\n\ncontador de tentativas-->  %i\n", contpos[0], contten[0]);
         }
-        printf("\ncontador de possibilidades-->  %i\n\ncontador de tentativas-->  %i\n", contpos[0], contten[0]);
         i=0;
         printf("\n");
         system("pause");
