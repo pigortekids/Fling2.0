@@ -7,12 +7,12 @@
 
 void MostrarCampo(int[linhas][colunas]);
 int Fim(int[linhas][colunas]);
-void Jogar(int[linhas][colunas], int[], char[]);
+void Jogar(int[linhas][colunas], int[], char[], int[], int[]);
 int Impossivel(int[linhas][colunas]);
 
 int main()
 {
-    int campo[linhas][colunas], i=0, j, m, n, k, escolha, linha, coluna, acabou[1];
+    int campo[linhas][colunas], i=0, j, m, n, k, escolha, linha, coluna, acabou[1], contpos[1], contten[1];
     char caminho[maxc];
     i=0;
     while(i==0){
@@ -28,6 +28,8 @@ int main()
         i=0;
         k=-1;
         acabou[0] = 0;
+        contpos[0] = 0;
+        contten[0] = 0;
         while(i==0){
             system("cls");
             MostrarCampo(campo);
@@ -45,7 +47,7 @@ int main()
             campo[linha-1][coluna-1] = 1;
             k+=1;
         }
-        Jogar(campo, acabou, caminho);
+        Jogar(campo, acabou, caminho, contpos, contten);
         system("cls");
         printf("\n");
         i=0;
@@ -65,6 +67,7 @@ int main()
                 i+=2;
             }
         }
+        printf("\ncontador de possibilidades-->  %i\n\ncontador de tentativas-->  %i\n", contpos[0], contten[0]);
         i=0;
         printf("\n");
         system("pause");
@@ -120,7 +123,7 @@ int Fim(int campo[linhas][colunas]){
     }
 }
 
-void Jogar(int campo[linhas][colunas], int acabou[], char caminho[]){
+void Jogar(int campo[linhas][colunas], int acabou[], char caminho[], int contpos[], int contten[]){
     int i, j, m, n, c=0, k, campo1[linhas][colunas];
     char caminho1[maxc];
     for(m=0;m<linhas;m++){
@@ -153,8 +156,10 @@ void Jogar(int campo[linhas][colunas], int acabou[], char caminho[]){
                                 campo1[i][k] = 0;
                             }
                             c=1;
+                            contten[0] += 1;
                         }
                     }
+                    contpos[0] += 1;
                     //MostrarCampo(campo1);
                     //system("pause");
                     if(c==1){
@@ -175,7 +180,7 @@ void Jogar(int campo[linhas][colunas], int acabou[], char caminho[]){
                         }
                     }
                     else{
-                        Jogar(campo1, acabou, caminho1);
+                        Jogar(campo1, acabou, caminho1, contpos, contten);
                     }
                     }
                     c=0;
@@ -203,8 +208,10 @@ void Jogar(int campo[linhas][colunas], int acabou[], char caminho[]){
                                 campo1[i][k] = 0;
                             }
                             c=1;
+                            contten[0] += 1;
                         }
                     }
+                    contpos[0] += 1;
                     //MostrarCampo(campo1);
                     //system("pause");
                     if(c==1){
@@ -225,7 +232,7 @@ void Jogar(int campo[linhas][colunas], int acabou[], char caminho[]){
                         }
                     }
                     else{
-                        Jogar(campo1, acabou, caminho1);
+                        Jogar(campo1, acabou, caminho1, contpos, contten);
                     }
                     }
                     c=0;
@@ -253,8 +260,10 @@ void Jogar(int campo[linhas][colunas], int acabou[], char caminho[]){
                                 campo1[k][j] = 0;
                             }
                             c=1;
+                            contten[0] += 1;
                         }
                     }
+                    contpos[0] += 1;
                     //MostrarCampo(campo1);
                     //system("pause");
                     if(c==1){
@@ -275,7 +284,7 @@ void Jogar(int campo[linhas][colunas], int acabou[], char caminho[]){
                         }
                     }
                     else{
-                        Jogar(campo1, acabou, caminho1);
+                        Jogar(campo1, acabou, caminho1, contpos, contten);
                     }
                     }
                     c=0;
@@ -303,8 +312,10 @@ void Jogar(int campo[linhas][colunas], int acabou[], char caminho[]){
                                 campo1[k][j] = 0;
                             }
                             c=1;
+                            contten[0] += 1;
                         }
                     }
+                    contpos[0] += 1;
                     //MostrarCampo(campo1);
                     //system("pause");
                     if(c==1){
@@ -325,7 +336,7 @@ void Jogar(int campo[linhas][colunas], int acabou[], char caminho[]){
                         }
                     }
                     else{
-                        Jogar(campo1, acabou, caminho1);
+                        Jogar(campo1, acabou, caminho1, contpos, contten);
                     }
                     }
                     c=0;
